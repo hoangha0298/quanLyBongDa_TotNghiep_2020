@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <!--    <property name="connection.url">jdbc:mysql://localhost:3306/quanlybongda_totnghiep</property>-->
+    <!--    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
+    <!--    <property name="connection.username">root</property>-->
+    <!--    <property name="connection.password"/>-->
+
+    <!--    &lt;!&ndash; JDBC connection pool (use the built-in) &ndash;&gt;-->
+    <!--    <property name="connection.pool_size">1</property>-->
+    <!--    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>-->
+    <!--    <property name="current_session_context_class">thread</property>-->
+    <!--    <property name="show_sql">true</property>-->
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/quanlybongda_totnghiep</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"/>
+
+        <property name="connection.pool_size">1</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <mapping class="com.javatools.crud.entitydatabase.CauThuEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.ChiSoCauThuEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.CauThuDaEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.DoiBongEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.DoiDaEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.GiaiDauEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.SanBongEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.SuKienEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.TranDauEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.TrongTaiEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.TrongTaiTranDauEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.ViTriEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.VongDauEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.SuKienTranDauEntity"/>
+        <mapping class="com.javatools.crud.entitydatabase.CauThuDaEntity"/>
+    </session-factory>
+</hibernate-configuration>
