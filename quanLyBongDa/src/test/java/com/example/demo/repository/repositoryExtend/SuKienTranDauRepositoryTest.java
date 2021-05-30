@@ -95,49 +95,49 @@ class SuKienTranDauRepositoryTest {
         assertThat(result).isEqualTo(null);
     }
 
-    @Test // thêm sự kiện không phải thay người
-    void testAddSuKienTranDau1() throws CloneNotSupportedException {
-        // Setup
-        final SuKienTranDauEntity data = suKienTranDauRepositoryUnderTest.findSuKienTranDauById(session, suKienTranDauIdExist);
-        final SuKienTranDauEntity suKienTranDauAdd = new SuKienTranDauEntity();
-        suKienTranDauAdd.setThoiGianDienRa(0.0);
-        suKienTranDauAdd.setMoTa("moTa");
-        suKienTranDauAdd.setTranDau(data.getTranDau());
+//    @Test // thêm sự kiện không phải thay người
+//    void testAddSuKienTranDau1() throws CloneNotSupportedException {
+//        // Setup
+//        final SuKienTranDauEntity data = suKienTranDauRepositoryUnderTest.findSuKienTranDauById(session, suKienTranDauIdExist);
+//        final SuKienTranDauEntity suKienTranDauAdd = new SuKienTranDauEntity();
+//        suKienTranDauAdd.setThoiGianDienRa(0.0);
+//        suKienTranDauAdd.setMoTa("moTa");
+//        suKienTranDauAdd.setTranDau(data.getTranDau());
+//
+//        when(mockMessageService.getMessage("event.type.card.yellow")).thenReturn("1");
+//        int idTheVang = Integer.parseInt(mockMessageService.getMessage("event.type.card.yellow"));
+//        suKienTranDauAdd.setSuKien(mockSuKienService.findSuKienById(session, idTheVang));
+//        int idCauThuDa = 101;
+//        suKienTranDauAdd.setCauThuDaByNguoiNhan(mockCauThuDaRepository.findCauThuDaById(session, idCauThuDa));
+//
+//        // Run the test
+//        suKienTranDauRepositoryUnderTest.addSuKienTranDau(session, suKienTranDauAdd);
+//        int id = suKienTranDauRepositoryUnderTest.getMaxId(session);
+//        SuKienTranDauEntity expectedResult = (SuKienTranDauEntity) suKienTranDauAdd.clone();
+//        expectedResult.setId(id);
+//        SuKienTranDauEntity result = suKienTranDauRepositoryUnderTest.findSuKienTranDauById(session, id);
+//
+//        // Verify the results
+//        assertThat(result).isEqualTo(expectedResult);
+//    }
 
-        when(mockMessageService.getMessage("event.type.card.yellow")).thenReturn("1");
-        int idTheVang = Integer.parseInt(mockMessageService.getMessage("event.type.card.yellow"));
-        suKienTranDauAdd.setSuKien(mockSuKienService.findSuKienById(session, idTheVang));
-        int idCauThuDa = 101;
-        suKienTranDauAdd.setCauThuDaByNguoiNhan(mockCauThuDaRepository.findCauThuDaById(session, idCauThuDa));
-
-        // Run the test
-        suKienTranDauRepositoryUnderTest.addSuKienTranDau(session, suKienTranDauAdd);
-        int id = suKienTranDauRepositoryUnderTest.getMaxId(session);
-        SuKienTranDauEntity expectedResult = (SuKienTranDauEntity) suKienTranDauAdd.clone();
-        expectedResult.setId(id);
-        SuKienTranDauEntity result = suKienTranDauRepositoryUnderTest.findSuKienTranDauById(session, id);
-
-        // Verify the results
-        assertThat(result).isEqualTo(expectedResult);
-    }
-
-    @Test
-    void testRemoveSuKienTranDau() {
-        // Setup
-        final SuKienTranDauEntity suKienTranDauRemove = new SuKienTranDauEntity();
-        suKienTranDauRemove.setId(0);
-        suKienTranDauRemove.setThoiGianDienRa(0.0);
-        suKienTranDauRemove.setMoTa("moTa");
-
-        when(mockMessageService.getMessage("msgCode")).thenReturn("result");
-
-        // Run the test
-        final String result = suKienTranDauRepositoryUnderTest.removeSuKienTranDau(session, suKienTranDauRemove);
-
-        // Verify the results
-        assertThat(result).isEqualTo("result");
-        verify(mockCauThuDaRepository).update(any(Session.class), eq(new CauThuDaEntity()));
-    }
+//    @Test
+//    void testRemoveSuKienTranDau() {
+//        // Setup
+//        final SuKienTranDauEntity suKienTranDauRemove = new SuKienTranDauEntity();
+//        suKienTranDauRemove.setId(0);
+//        suKienTranDauRemove.setThoiGianDienRa(0.0);
+//        suKienTranDauRemove.setMoTa("moTa");
+//
+//        when(mockMessageService.getMessage("msgCode")).thenReturn("result");
+//
+//        // Run the test
+//        final String result = suKienTranDauRepositoryUnderTest.removeSuKienTranDau(session, suKienTranDauRemove);
+//
+//        // Verify the results
+//        assertThat(result).isEqualTo("result");
+//        verify(mockCauThuDaRepository).update(any(Session.class), eq(new CauThuDaEntity()));
+//    }
 
     @Test
     void testYellowCardPlayerInMatch() {
